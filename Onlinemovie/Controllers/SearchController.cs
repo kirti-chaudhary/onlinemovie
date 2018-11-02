@@ -46,6 +46,7 @@ namespace Onlinemovie.Controllers
         {
             // var result = service.SelectedShow(showid);
             int x = 1000;
+            x += 200;
             return null;
         }
 
