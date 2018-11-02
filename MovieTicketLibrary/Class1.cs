@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MovieTicketLibrary
 {
@@ -17,8 +18,8 @@ namespace MovieTicketLibrary
     }
     public class BookSeat1
     {
-        public string Seatno { get; set; }
-        public string TotalSeats { get; set; }
+        public List<string> Seatno { get; set; }
+        public int TotalSeats { get; set; }
       
 
     }
