@@ -44,7 +44,7 @@ namespace Onlinemovie.Controllers
         [AppErrorFilter]
         public IActionResult SelectedShow(int showid)
         {
-            var result = service.SelectedShow(showid);
+           // var result = service.SelectedShow(showid);
                 
             return null;
         }
