@@ -1,0 +1,119 @@
+﻿@using MovieTicketLibrary
+@model MovieDetails
+@{
+    ViewData["Title"] = "SearchView";
+    var cities = (SelectList)ViewBag.cities;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Simple Login Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        .login-form {
+            width: 300px;
+            margin: 50px auto;
+        }
+
+            .login-form form {
+                margin-bottom: 15px;
+                background: #f7f7f7;
+                box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+                padding: 10px;
+            }
+
+            .login-form h2 {
+                margin: 0 0 15px;
+            }
+
+        .form-control, .btn {
+            min-height: 38px;
+            border-radius: 2px;
+        }
+
+        .btn {
+            font-size: 15px;
+            font-weight: bold;
+        }
+    </style>
+    </head>
+
+
+
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-5">
+            <div class="form-group">
+                <select asp-items="@cities" id="selCity" name="Category" class="form-control">
+                    <option value="" selected disabled>Select City</option>
+                </select>
+            </div>
+            <form asp-action="GetMovies" asp-controller="Search">
+
+                <div class="form-group">
+                    <select id="selMultiplex" name="MultiplexId" class="form-control">
+                        <option value="" selected disabled>Select Multiplex</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="date" name="MovieDate" />
+                </div>
+                <div class="form-group">
+                    <a href="http://localhost:54200/Search/GetMovies">
+                        <input type="submit" value="Select Movie" />
+                    </a>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-4"></div>
+
+    </div>
+    @section Scripts
+        {
+        <script>
+            $(document).ready(function () {
+                //get the reference of category dropdown( html select element for category. #selCategory is the id. # is used to select element by ID)
+                // "change" function will be called when you select a category;
+                $('#selCity').change(function () {
+                    //$.ajax function is used to make ajax requests to the home controller and its actions
+                    $.ajax({
+                        url: 'http://localhost:54515/SearchService/GetMultiplex?id=' + $('#selCity').val(),// + , //Home controller and GetSubCategories action
+                        type: 'GET',
+
+                        success: function (data) {      // if request is successful function is called by ajax and you can access the subcategories through "data" input parameter of the function
+                            var opt;
+                            var subcat = $('#selMultiplex');
+                            subcat.empty();
+                            //create an option,make it [disabled],[select] it,value is nothing and text is '--Select a subcategory--'
+                            // for example <option disabled selected value=''>--Select a SubCategory--</option>
+                            opt = $('<option>');
+                            opt.attr('disabled', true);
+                            opt.attr('selected', true);
+                            opt.attr('value', '');
+                            opt.text('Select Multiplex');
+                            //add this option of subcategory dropdown
+                            subcat.append(opt);
+
+                            //here we will programetically add the subcatories to the dropdown
+                            for (var i = 0; i < data.length; i++)// data is an array of subcategories objects.
+                            {
+                                opt = $('<option>');  //this is how we create an option in jquery
+                                opt.attr('value', data[i].id);            // add option value
+                                opt.text(data[i].name);                             //add option text
+                                subcat.append(opt);          //add option to subcategory dropdown
+                            }
+                        },
+                        error: function (e) {
+                            alert(e.toString());
+                        }
+                    });
+
+                });
+            });
+        </script>
+    }
