@@ -47,11 +47,16 @@ namespace OnlineMovieService.Controllers
             return result;
         }
         [Route("SelectedShow")]
-        [HttpPost]
-        public List<Bookdetails> SelectedShow(string id)
+        [HttpGet]
+        public BookSeat1 SelectedShow([FromQuery]string id)// passing city as parameter
         {
+            int showid = Convert.ToInt32(id);
             var result = service.SelectedShow(id);
+            //var result = service.SelectedShow(id);
+            //return result;
+            
             return result;
+
         }
     }
 }

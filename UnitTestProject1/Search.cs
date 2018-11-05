@@ -29,8 +29,8 @@ namespace OnlineMovieUnitTests
             //Arrange
             MultiplexSearch search = new MultiplexSearch()
             {
-                Id=100,
-                Name="abcd"
+                Id=102,
+               Name="abcd"
             };
             //Act
             var result = controller.GetMultiplex("Mumbai");

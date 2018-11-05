@@ -18,10 +18,10 @@ namespace MovieTicketLibrary
     }
     public class BookSeat1
     {
+
         public List<string> Seatno { get; set; }
         public int TotalSeats { get; set; }
-        int temp = 1000;
-
+       
     }
 
 }
