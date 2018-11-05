@@ -45,7 +45,7 @@ namespace Onlinemovie.Controllers
         public IActionResult SelectedShow(int showid)
         {
             // var result = service.SelectedShow(showid);
-            
+           
             return null;
         }
 

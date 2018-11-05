@@ -49,7 +49,7 @@ namespace OnlineMovieUnitTests
             //Arrange
             Register register = new Register()
             {
-                Name = "kirti",
+                Name = "isha",
                 EmailId = "kirti@gmail.com",
                 Password = "kirti",
               Phoneno = "123490"
