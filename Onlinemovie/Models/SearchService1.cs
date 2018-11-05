@@ -42,19 +42,19 @@ namespace Onlinemovie.Models
             List<DisplayMovies>  shows=JsonConvert.DeserializeObject<List<DisplayMovies>>(json);
             return shows;
         }
-        public Bookdetails  SelectedShow(MovieDetails details)
-        {
-            string req = "SearchService/SelectedShow";
+        //public Bookdetails  SelectedShow(MovieDetails details)
+        //{
+        //    string req = "SearchService/SelectedShow";
 
-            string json = JsonConvert.SerializeObject(details);
+        //    string json = JsonConvert.SerializeObject(details);
 
-            HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
-            HttpResponseMessage response = client.PostAsync(req, content).Result;
-            //HttpResponseMessage response = client.GetAsync(req, content).Result;
-            json = response.Content.ReadAsStringAsync().Result;
-            List<Bookdetails> seatno = JsonConvert.DeserializeObject<List<Bookdetails>>(json);
-            return seatno;
-        }
+        //    HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
+        //    HttpResponseMessage response = client.PostAsync(req, content).Result;
+        //    //HttpResponseMessage response = client.GetAsync(req, content).Result;
+        //    json = response.Content.ReadAsStringAsync().Result;
+        //    List<Bookdetails> seatno = JsonConvert.DeserializeObject<List<Bookdetails>>(json);
+        //    return seatno;
+        //}
 
 
         

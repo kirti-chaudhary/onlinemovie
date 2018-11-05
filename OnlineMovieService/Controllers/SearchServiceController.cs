@@ -41,14 +41,14 @@ namespace OnlineMovieService.Controllers
         [ServiceErrorFilter]
         [Route("GetMovies")]
         [HttpPost]
-        public List<DisplayMovies> GetMovies(MovieDetails details)
+        public List<DisplayMovies> GetMovies( MovieDetails details)
         {
             var result = service.GetMovies(details);
             return result;
         }
         [Route("SelectedShow")]
         [HttpGet]
-        public BookSeat1 SelectedShow([FromQuery]string id)// passing city as parameter
+        public BookSeat1 SelectedShow([FromQuery]string id)// 
         {
             int showid = Convert.ToInt32(id);
             var result = service.SelectedShow(id);
