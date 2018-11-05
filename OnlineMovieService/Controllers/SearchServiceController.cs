@@ -46,12 +46,12 @@ namespace OnlineMovieService.Controllers
             var result = service.GetMovies(details);
             return result;
         }
-        [Route("SelectedShow")]
-        [HttpPost]
-        public List<Bookdetails> SelectedShow(string id)
-        {
-            var result = service.SelectedShow(id);
-            return result;
+        //[Route("SelectedShow")]
+        //[HttpPost]
+        //public List<Bookdetails> SelectedShow(string id)
+        //{
+        //    var result = service.SelectedShow(id);
+        //   return result;
         }
     }
-}
+

@@ -66,24 +66,24 @@ namespace Onlinemovie.Models
 
             // json = context.Session.GetString("CatSubCat");
             // SubCategory subcategory = JsonConvert.DeserializeObject<SubCategory>(json);
-            bool isavailable = context.Session.TryGetValue("Showid", out ary);
-            if (isavailable == false)
-            {
-                serializedObjects = new List<Bookdetails>();
-                serializedObjects.Add(model);
-                serializedObjects = serializedObjects.Distinct().ToList();
-                json = JsonConvert.SerializeObject(serializedObjects);
-                context.Session.SetString("Cart", json);
-            }
-            else
-            {
-                json = context.Session.GetString("Cart");
-                serializedObjects = JsonConvert.DeserializeObject<List<Bookdetails>>(json);
-                serializedObjects.Add(model);
-                serializedObjects = serializedObjects.Distinct().ToList();
-                json = JsonConvert.SerializeObject(serializedObjects);
-                context.Session.SetString("Cart", json);
-            }
+            //bool isavailable = context.Session.TryGetValue("Showid", out ary);
+            //if (isavailable == false)
+            //{
+            //    serializedObjects = new List<Bookdetails>();
+            //    serializedObjects.Add(model);
+            //    serializedObjects = serializedObjects.Distinct().ToList();
+            //    json = JsonConvert.SerializeObject(serializedObjects);
+            //    context.Session.SetString("Cart", json);
+            //}
+            //else
+            //{
+            //    json = context.Session.GetString("Cart");
+            //    serializedObjects = JsonConvert.DeserializeObject<List<Bookdetails>>(json);
+            //    serializedObjects.Add(model);
+            //    serializedObjects = serializedObjects.Distinct().ToList();
+            //    json = JsonConvert.SerializeObject(serializedObjects);
+            //    context.Session.SetString("Cart", json);
+            //}
 
         
 

@@ -29,12 +29,30 @@ namespace OnlineMovieUnitTests
             //Arrange
             MultiplexSearch search = new MultiplexSearch()
             {
-                Id=100,
-                Name="abcd"
+                Id = 100,
+                Name = "abcd"
             };
             //Act
-            var result = controller.GetMultiplex("Mumbai");
-            Assert.IsNotNull(result);
+            var result = controller.GetMultiplex("Noida");
+            Assert.AreEqual(3, result.Count);
+        }
+
+        class Movie
+        {
+
+        }
+        [TestMethod]
+        public void SearchMovie()
+        {
+            //Arrange
+            DisplayMovies display = new DisplayMovies()
+            {
+
+            };
+            //Act
+            var result = controller.GetMovies((101).ToString);
+            Assert.AreEqual(2, result.Count);
         }
     }
 }
+
