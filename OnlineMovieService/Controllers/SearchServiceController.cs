@@ -33,7 +33,7 @@ namespace OnlineMovieService.Controllers
         [ServiceErrorFilter]
         [Route("GetMultiplex")]
         [HttpGet]
-        public List<MultiplexSearch> GetMultiplex([FromQuery]string id)
+        public List<MultiplexSearch> GetMultiplex([FromQuery]string id)// parameter for city
         {
             var result = service.GetMultiplex(id);
             return result;
@@ -41,14 +41,15 @@ namespace OnlineMovieService.Controllers
         [ServiceErrorFilter]
         [Route("GetMovies")]
         [HttpPost]
-        public List<DisplayMovies> GetMovies( MovieDetails details)
+        public List<DisplayMovies> GetMovies(MovieDetails details)
         {
             var result = service.GetMovies(details);
             return result;
         }
-        [Route("SelectedShow")]
+
+        [Route("SelectedShow/{id}")]
         [HttpGet]
-        public BookSeat1 SelectedShow([FromQuery]string id)// 
+        public BookSeat1 SelectedShow(int id)
         {
             int showid = Convert.ToInt32(id);
             var result = service.SelectedShow(id);

@@ -1,0 +1,76 @@
+﻿@using  MovieTicketLibrary;
+
+@{
+    ViewData["Title"] = "SelectedShow";
+
+    BookSeat1 seatInfo = (BookSeat1)ViewData["SeatInfo"];
+    int seatperrow = seatInfo.TotalSeats / 10;
+    string[] seats = seatInfo.Seatno.ToArray();
+}
+
+@*@{string[][] array2 = { new string[] { "a11", "a12", "a13" }, new string[] { "a21", "a22", "a23" } }; }
+    @foreach (int line in new int[] { 0, 1 })
+    {
+        @:<div class="btn-group" role="group" aria-label="...">
+            foreach (var col in array2[line])
+            {
+                <button type="button" class="btn btn-default">@col</button>
+            }
+        @:</div>
+        @:<br />
+    }*@
+
+@{
+    int n = 65;
+}
+<form asp-action="SelectedSeats" asp-controller="Search">
+    <table class="table table-bordered">
+
+
+        @for (int i = 1; i <= 10; i++)
+        {
+            <tr>
+
+                @for (int j = 1; j <= seatperrow; j++)
+                {
+
+                    <td style="text-align:right">
+                        <label>@string.Format("{0}{1}", (char)n, j)</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="selectedseats" style="transform:scale(2,2)" value="@string.Format("{0}{1}", (char)n, j)" />
+                    </td>
+
+                }
+                @{n++;
+                }
+            </tr>
+        }
+
+    </table>
+    <input type="submit" value="Book Seats"/>
+
+</form>
+<br />
+@section Scripts
+    {
+    <script>
+
+         var chkboxes = $('input[type=checkbox]');
+         var alreadybooked = '@string.Join(",",seats)';
+         alreadybooked = alreadybooked.split(',');
+        $(chkboxes).each(function (j, e) {
+
+            for (var i = 0; i < alreadybooked.length; i++) {
+                if ($(e).val() == alreadybooked[i]) {
+                    $(e).attr('disabled', true);
+                    $(e).attr('checked', true);
+                    $(e).closest('td').css('backgroundColor', 'yellow');
+                    $(e).closest('td').prev().css('backgroundColor', 'yellow');
+                    break;
+                }
+            }
+        });
+
+    </script>
+}

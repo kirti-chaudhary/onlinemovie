@@ -58,14 +58,14 @@ namespace OnlineMovieService.Models
 
             return result;
         }
-        public BookSeat1 SelectedShow(string id)
+        public BookSeat1 SelectedShow(int id)// this is show id
         {
 
-            int showid = Convert.ToInt32(id);
+           
             var result = (from s in context.Shows
                           join b in context.Bookingdetails on s.ShowId equals b.Showid
                           join bd in context.Bookedseat on b.Bookingid equals bd.Bookingid
-                          where s.ShowId == showid
+                          where s.ShowId == id
 
                           select bd.Seatno).ToList();
             var totalseats = (from c in context.Shows join m in context.MultiplexHall on c.HallId equals m.HallId select m.TotalSeats).First().Value;
