@@ -3,35 +3,89 @@
 @{
     ViewData["Title"] = "GetMovies";
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Simple Login Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
-<form asp-action="Getmovies" asp-controller="Search" method="post">
-    <table class="table table-bordered" border="1">
-        @foreach (var m in Model)
-        {
-            <tr>
-                
-                <th>Movie Image</th>
-                <th>Movie Name</th>
-                <th>Multiplex Name</th>
-                <th>Price</th>
-                <th>Movie Time</th>
-                <th>Select</th>
-                
-                    
-            </tr>
- <tr>
-                <td>
-                    <img src='@string.Format("/images/{0}",m.MovieImage)' height="100" width="200" />
-                </td>
-                <td>@m.MovieName</td>
-                <td>@m.MultiplexName</td>
-                <td>@Math.Round(m.Price, 0)</td>
-                <td>@Convert.ToDateTime(@m.Showtime.ToString()).ToLongTimeString()</td>
-                <td>
-                    <a asp-action="SelectedShow" asp-controller="Search" class="btn btn-success" asp-route-showid="@m.ShowId">Select Show</a>
-                </td>
-            </tr>
+   
+    <style>
+        #customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
         }
-    </table>
-    </form>
+
+            #customers td, #customers th {
+                border: 1px solid #ddd;
+                padding: 10px;
+               
+            }
+
+            #customers tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            #customers tr:hover {
+                background-color: #ddd;
+            }
+
+            #customers th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color:steelblue ;
+                color: white;
+            }
+    </style>
+
+</head>
+<body style="background-image:url(http://www.yesco.com/wp-content/uploads/2017/08/State-Theater.jpg)">
+    
+        <div style="background-color:aliceblue;position:absolute;top:200px;left:130px">
+            <div>
+                <form asp-action="Getmovies" asp-controller="Search" method="post">
+
+                    <table class="table table-bordered"  style="box-shadow:inherit" id="customers">
+                        <tr>
+
+                            <th>Movie Image</th>
+                            <th>Movie Name</th>
+                            <th>Multiplex Name</th>
+                            <th>Price</th>
+                            <th>Movie Time</th>
+                            <th>Select</th>
+
+
+                        </tr>
+                        @foreach (var m in Model)
+                        {
+
+                            <tr>
+                                <td>
+                                    <img src='@string.Format("/images/{0}",m.MovieImage)' height="120" width="230" />
+                                </td>
+                                <td style="padding:40px">@m.MovieName</td>
+                                <td style="padding:40px">@m.MultiplexName</td>
+                                <td style="padding:40px">@Math.Round(m.Price, 0)</td>
+                                <td style="padding:40px">@Convert.ToDateTime(@m.Showtime.ToString()).ToLongTimeString()</td>
+                                <td style="padding:40px">
+                                    <a asp-action="SelectedShow" asp-controller="Search" class="btn btn-primary" asp-route-showid="@m.ShowId">Select Show</a>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+
+                </form>
+            </div>
+        </div>
+      
+</body>
+</html>
+

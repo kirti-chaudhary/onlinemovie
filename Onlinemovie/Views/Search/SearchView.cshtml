@@ -14,17 +14,19 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style type="text/css">
+    @*<style type="text/css">
         .login-form {
             width: 300px;
             margin: 50px auto;
+            position: absolute;
+            top: 300px;
+            left: 400px;
         }
-
             .login-form form {
                 margin-bottom: 15px;
-                background: #f7f7f7;
+                background: blue;
                 box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-                padding: 10px;
+                padding: 15px;
             }
 
             .login-form h2 {
@@ -40,37 +42,40 @@
             font-size: 15px;
             font-weight: bold;
         }
-    </style>
+    </style>*@
     </head>
-<body>
-<div class="row">
+<body style="background-image:url(http://www.yesco.com/wp-content/uploads/2017/08/State-Theater.jpg)">
+@*<div class="row">
         <div class="col-lg-3"></div>
-        <div class="col-lg-5">
+        <div class="col-lg-5">*@
+    <div style="position:absolute;top:200px;left:300px;">
+        <div class="form-group" style="column-width:400px">
+            <select asp-items="@cities" id="selCity" name="Category" class="form-control">
+                <option value="" selected disabled>Select City</option>
+            </select>
+        </div>
+
+        <form asp-action="GetMovies" asp-controller="Search">
+
             <div class="form-group">
-                <select asp-items="@cities" id="selCity" name="Category" class="form-control">
-                    <option value="" selected disabled>Select City</option>
+                <select id="selMultiplex" name="MultiplexId" class="form-control">
+                    <option value="" selected disabled>Select Multiplex</option>
                 </select>
             </div>
-            <form asp-action="GetMovies" asp-controller="Search">
-
-                <div class="form-group">
-                    <select id="selMultiplex" name="MultiplexId" class="form-control">
-                        <option value="" selected disabled>Select Multiplex</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <input type="date" name="MovieDate" />
-                </div>
-                <div class="form-group">
-                    <a href="http://localhost:54200/Search/GetMovies">
-                        <input type="submit" value="Select Movie" />
-                    </a>
-                </div>
-            </form>
-        </div>
+            <div class="form-group" style="column-width:400px">
+                <input class="form-control" type="date" name="MovieDate" value="Select Date" />
+            </div>
+            <div class="form-group" style="column-width:650px">
+                <a href="http://localhost:54200/Search/GetMovies">
+                    <input type="submit" value="Select Movie" class="btn btn-primary btn-block"/>
+                </a>
+            </div>
+        </form>
+    </div>
+        @*</div>
         <div class="col-lg-4"></div>
 
-    </div>
+    </div>*@
     </body>
 </html>
     @section Scripts

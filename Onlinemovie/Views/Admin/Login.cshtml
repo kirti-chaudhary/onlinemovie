@@ -19,6 +19,10 @@
         .login-form {
             width: 300px;
             margin: 50px auto;
+            position:absolute;
+            top:150px;
+            left:430px;
+
         }
 
             .login-form form {
@@ -43,7 +47,8 @@
         }
     </style>
 </head>
-<body>
+<body style=" background-image: url(https://wallpapersite.com/images/wallpapers/blur-background-2880x1800-spectrum-electromagnetic-4k-901.jpg)">
+   
     <div class="login-form">
         <form asp-action="login" asp-controller="Admin" method="post">
         <h2 class="text-center">Log In</h2>
@@ -60,10 +65,11 @@
         </form>
         <div>
             <a href="http://localhost:54200/admin/entry">
-                <h2 class="text-right"> <input type="submit" value="New User?" class="btn btn-primary" /></h2>
+                <h2 > <input type="submit" value="New User?" class="btn btn-primary" /></h2>
             </a>
             </div>
         </div>
+           
 
         
    
