@@ -23,5 +23,14 @@ namespace MovieTicketLibrary
         public int TotalSeats { get; set; }
        
     }
+    public class BookingInformation {
+        public int CustomerId { get; set; }
+        public int ShowId { get; set; }
+        public string Paymentmode { get; set; }
+        public string[] Seatno { get; set; }
+
+
+
+    }
 
 }

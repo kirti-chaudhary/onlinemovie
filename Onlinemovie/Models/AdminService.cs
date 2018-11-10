@@ -1,4 +1,5 @@
-﻿using MovieTicketLibrary;
+﻿using Microsoft.AspNetCore.Http;
+using MovieTicketLibrary;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace Onlinemovie.Models
 {
     public class AdminService
     {
+       public HttpContext context;
         HttpClient client;
         public AdminService()
         {
@@ -28,8 +30,12 @@ namespace Onlinemovie.Models
             {
                 return 0;
             }
-            return 1;
-
+            else
+            {
+                int id =Convert.ToInt32( response.Content.ReadAsStringAsync().Result);
+                context.Session.SetInt32("CustomerId", id);
+                return 1;
+            }
         }
         [AppErrorFilter]
         public int AddNew(Register r)

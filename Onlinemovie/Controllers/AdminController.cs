@@ -26,9 +26,10 @@ namespace Onlinemovie.Controllers
         }
         [HttpPost]
         public IActionResult Login(Credentials credentials)
-        {
+        {             
             try
             {
+                service.context = HttpContext;
                 log.LogInformation("Executing GetProducts Method..");
                 int result = service.Login(credentials);
                 if (result == 0)

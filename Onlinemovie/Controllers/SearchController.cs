@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MovieTicketLibrary;
@@ -34,19 +35,25 @@ namespace Onlinemovie.Controllers
             }
 
         }
-        [AppErrorFilter]
+      //  [AppErrorFilter]
              public IActionResult GetMovies(MovieDetails details)
         {
 
             var result =  service.GetMovies(details);
            return View(result);
         }
-        [AppErrorFilter]
+       // [AppErrorFilter]
         public IActionResult SelectedShow(int showid)
         {
-            // var result = service.SelectedShow(showid);
-           
-            return null;
+            HttpContext.Session.SetInt32("ShowId", showid);
+            var result = service.SelectedShow(showid);
+            ViewData["SeatInfo"] = result;
+            return View();
+        }
+        public IActionResult SelectedSeats(string[] selectedseats)
+        {
+            service.StoreSeatsInSession(selectedseats, HttpContext);
+            return RedirectToAction("Payment","Booking");
         }
 
     }

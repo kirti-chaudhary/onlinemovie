@@ -32,7 +32,9 @@ namespace Onlinemovie
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddSession();
+            services.AddSession(opts=> {
+                opts.IdleTimeout = TimeSpan.FromMinutes(5);
+            });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -47,7 +49,7 @@ namespace Onlinemovie
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-            app.UseMiddleware(typeof(AppExceptionHandlingMiddleware));
+          //  app.UseMiddleware(typeof(AppExceptionHandlingMiddleware));
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseSession();

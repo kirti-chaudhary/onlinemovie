@@ -44,15 +44,27 @@ namespace OnlineMovieUnitTests
         [TestMethod]
         public void SearchMovie()
         {
-            //Arrange
-            DisplayMovies display = new DisplayMovies()
+
+            //Act
+            MovieDetails m = new MovieDetails();
+            m.MultiplexId = 100;
+            m.MovieDate = Convert.ToDateTime("2018-09-30");
+             var result = controller.GetMovies(m);
+             Assert.AreEqual(2,result.Count);
+        }
+        [TestMethod]
+        public void Show()
+        {
+            BookSeat1 book = new BookSeat1()
             {
 
             };
-            //Act
-            var result = controller.GetMovies((101).ToString);
-            Assert.AreEqual(2, result.Count);
+            var result = controller.SelectedShow(1001);
+            Assert.AreEqual(3,result.Seatno.Count);
+           
         }
+
+        
     }
 }
 
