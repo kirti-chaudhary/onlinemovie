@@ -29,6 +29,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MovieTicketLibrary\MovieTicketLibrary.csproj" />
+    <ProjectReference Include="..\OnlineMovieService\OnlineMovieService.csproj" />
   </ItemGroup>
 
 </Project>

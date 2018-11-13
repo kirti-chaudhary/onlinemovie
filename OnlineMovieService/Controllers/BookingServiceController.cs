@@ -13,13 +13,14 @@ namespace OnlineMovieService.Controllers
     public class BookingServiceController : ControllerBase
     {
         [Route("BookTickets")]
+        [HttpGet]
         [HttpPost]
         public IActionResult BookTickets(BookingInformation bookingInformation)
         {
             BookingService1 obj = new BookingService1();
-            obj.BookTickets(bookingInformation);
+           var ticketInfo= obj.BookTickets(bookingInformation);
 
-            return Ok();
+            return Ok(ticketInfo);
         }
     }
 }

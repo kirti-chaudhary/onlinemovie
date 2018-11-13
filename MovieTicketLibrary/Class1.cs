@@ -28,8 +28,7 @@ namespace MovieTicketLibrary
         public int ShowId { get; set; }
         public string Paymentmode { get; set; }
         public string[] Seatno { get; set; }
-
-
+        public int Price { get; set; }
 
     }
 

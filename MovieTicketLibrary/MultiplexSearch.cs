@@ -39,6 +39,7 @@ namespace MovieTicketLibrary
         public int BookingId { get; set; }
         public string seatno { get; set; }
         public int ticketno { get; set; }
+        public decimal Price { get; set; }
 
     }
     

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using MovieTicketLibrary;
 using Newtonsoft.Json;
+using OnlineMovieService.Models.DB;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +39,14 @@ namespace Onlinemovie.Models
 
             string json = JsonConvert.SerializeObject(obj);
             HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
+
             HttpResponseMessage response = client.PostAsync("Booking/BookTickets", content).Result;
+            if (response.IsSuccessStatusCode==true)
+            {
+
+                string ticketJson = response.Content.ReadAsStringAsync().Result;
+                List<Bookedseat> ticketInfo=JsonConvert.DeserializeObject<List<Bookedseat>>(ticketJson);
+            }
 
         }
 
