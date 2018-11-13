@@ -15,7 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    
-    <style type="text/css">
+    @*<style type="text/css">
         .login-form {
             width: 300px;
             margin: 50px auto;
@@ -45,30 +45,40 @@
             font-size: 15px;
             font-weight: bold;
         }
-    </style>
+    </style>*@
 </head>
 <body style=" background-image: url(https://wallpapersite.com/images/wallpapers/blur-background-2880x1800-spectrum-electromagnetic-4k-901.jpg)">
    
     <div class="login-form">
-        <form asp-action="login" asp-controller="Admin" method="post">
-        <h2 class="text-center">Log In</h2>
-        <div class="form-group">
-            <input type="text" class="form-control" asp-for="Email" placeholder="Enter Username" required="required">
-        </div>
-        <div class="form-group">
-            <input type="password" class="form-control" asp-for="Password" placeholder="Password" required="required">
-        </div>
-        <span asp-validation-for="Email" class="text-danger"></span>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block">Log In</button>
-        </div>
-        </form>
-        <div>
-            <a href="http://localhost:54200/admin/entry">
-                <h2 > <input type="submit" value="New User?" class="btn btn-primary" /></h2>
-            </a>
+        <div style="position:absolute;top:250px;left:250px ">
+            <form asp-action="login" asp-controller="Admin" method="post">
+                @*<h2 class="text-center">Log In</h2>*@
+                @*<h2 class="text-center" style="font:400;font-style:inherit;color:aliceblue">Log In</h2>*@
+
+                <div class="form-group">
+                    <input type="text" class="form-control" asp-for="Email" placeholder="Enter Username" required="required">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" asp-for="Password" placeholder="Password" required="required">
+                </div>
+                <span asp-validation-for="Email" class="text-danger"></span>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Log In</button>
+                </div>
+
+            </form>
+            <div>
+                <a href="http://localhost:54200/admin/entry">
+                    <div class="form-group" style="column-width:650px">
+
+                        <input type="submit" value="New User?" class="btn btn-primary btn-block" />
+
+                    </div>
+                </a>
             </div>
+
         </div>
+    </div>
            
 
         

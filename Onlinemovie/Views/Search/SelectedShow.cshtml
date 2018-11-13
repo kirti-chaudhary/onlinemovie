@@ -19,39 +19,116 @@
         @:</div>
         @:<br />
     }*@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Simple Login Form</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-@{
-    int n = 65;
-}
-<form asp-action="SelectedSeats" asp-controller="Search">
-    <table class="table table-bordered">
 
-
-        @for (int i = 1; i <= 10; i++)
-        {
-            <tr>
-
-                @for (int j = 1; j <= seatperrow; j++)
-                {
-
-                    <td style="text-align:right">
-                        <label>@string.Format("{0}{1}", (char)n, j)</label>
-                    </td>
-                    <td>
-                        <input type="checkbox" name="selectedseats" style="transform:scale(2,2)" value="@string.Format("{0}{1}", (char)n, j)" />
-                    </td>
-
-                }
-                @{n++;
-                }
-            </tr>
+    @*<style>
+        #customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
         }
 
-    </table>
-    <input type="submit" value="Book Seats"/>
+            #customers td, #customers th {
+                border: 1px solid #ddd;
+                padding: 10px;
+            }
 
-</form>
+            #customers tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            #customers tr:hover {
+                background-color: #ddd;
+            }
+
+            #customers th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: steelblue;
+                color: white;
+            }
+    </style>*@
+
+</head>
+<body>
+    @{
+        int n = 65;
+    }
+    <div style="background-color:aliceblue;position:absolute;top:220px;left:350px">
+        <form asp-action="SelectedSeats" asp-controller="Search">
+            <table class="table table-bordered">
+
+
+                @for (int i = 1; i <= 10; i++)
+                {
+                <tr>
+
+                    @for (int j = 1; j <= seatperrow; j++)
+                    {
+                        if (j == 4)
+                        {
+                            <td style="text-align:right" class="no-border">
+                                &nbsp;
+                            </td>
+                            <td style="text-align:right" class="no-border">
+                                &nbsp;
+                            </td>
+                            <td style="text-align:right" class="no-border">
+                                &nbsp;
+                            </td>
+                            <td style="text-align:right" class="no-border">
+                                &nbsp;
+                            </td>
+                            <td style="text-align:right" class="no-border">
+                                &nbsp;
+                            </td>
+
+
+
+                            <td style="text-align:right">
+                                <label>@string.Format("{0}{1}", (char)n, j)</label>
+                                
+                            </td>
+                            <td>
+                                <input type="checkbox" name="selectedseats" style="transform:scale(2,2)" value="@string.Format("{0}{1}", (char)n, j)" />
+                            </td>
+                        }
+                        else
+                        {
+                            <td style="text-align:right">
+                                <label>@string.Format("{0}{1}", (char)n, j)</label>
+                            </td>
+                            <td>
+                                <input type="checkbox" name="selectedseats" style="transform:scale(2,2)" value="@string.Format("{0}{1}", (char)n, j)" />
+                            </td>
+                        }
+
+                    }
+                    @{n++;
+                    }
+                </tr>
+                }
+
+            </table>
+            <input type="submit" class="btn btn-primary btn-block" value="Book Seats" />
+        </form>
+    </div>
+</body>
+</html>
 <br />
+
 @section Scripts
     {
     <script>
@@ -74,3 +151,4 @@
 
     </script>
 }
+
