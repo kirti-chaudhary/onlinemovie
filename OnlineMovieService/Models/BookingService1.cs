@@ -17,7 +17,7 @@ namespace OnlineMovieService.Models
 
 
         }
-        public List<Bookedseat> BookTickets(BookingInformation bookinginformation)
+        public Bookedseat[] BookTickets(BookingInformation bookinginformation)
         {
 
             Bookingdetails obj = new Bookingdetails();
@@ -48,7 +48,7 @@ namespace OnlineMovieService.Models
                 showobj.BookedSeat += bookinginformation.Seatno.Length;
                 context.SaveChanges();
 
-            var ticketNosForInvoice = (from b in context.Bookedseat where b.Bookingid == obj.Bookingid select b).ToList();
+            var ticketNosForInvoice = (from b in context.Bookedseat where b.Bookingid == obj.Bookingid select b).ToArray();
             return ticketNosForInvoice;
             }
         }

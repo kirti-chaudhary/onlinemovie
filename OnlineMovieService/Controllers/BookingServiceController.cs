@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MovieTicketLibrary;
+using Newtonsoft.Json;
 using OnlineMovieService.Models;
 
 namespace OnlineMovieService.Controllers
@@ -18,9 +19,10 @@ namespace OnlineMovieService.Controllers
         public IActionResult BookTickets(BookingInformation bookingInformation)
         {
             BookingService1 obj = new BookingService1();
-           var ticketInfo= obj.BookTickets(bookingInformation);
+            var ticketInfo= obj.BookTickets(bookingInformation);
 
-            return Ok(ticketInfo);
+            return Ok();
+            
         }
     }
 }

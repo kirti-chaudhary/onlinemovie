@@ -22,13 +22,10 @@ namespace Onlinemovie.Models
         }
         public void MakeBooking(string Paymentmode)
         {
-
             int ShowId = Context.Session.GetInt32("ShowId").Value;
-            
             int CustomerId = Context.Session.GetInt32("CustomerId").Value;
             string seats = Context.Session.GetString("seats");
-
-        string[] Seats = JsonConvert.DeserializeObject <string[]>(seats);
+             string[] Seats = JsonConvert.DeserializeObject <string[]>(seats);
 
             BookingInformation obj = new BookingInformation();
             obj.CustomerId = CustomerId;
@@ -40,12 +37,12 @@ namespace Onlinemovie.Models
             string json = JsonConvert.SerializeObject(obj);
             HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            HttpResponseMessage response = client.PostAsync("Booking/BookTickets", content).Result;
+      HttpResponseMessage response = client.PostAsync("Booking/BookTickets", content).Result;
             if (response.IsSuccessStatusCode==true)
             {
 
-                string ticketJson = response.Content.ReadAsStringAsync().Result;
-                List<Bookedseat> ticketInfo=JsonConvert.DeserializeObject<List<Bookedseat>>(ticketJson);
+               // string ticketJson = response.Content.ReadAsStringAsync().Result;
+               // Bookedseat[] ticketInfo=JsonConvert.DeserializeObject<Bookedseat[]>(ticketJson);
             }
 
         }

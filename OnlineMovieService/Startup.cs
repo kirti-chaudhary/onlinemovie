@@ -34,7 +34,7 @@ namespace OnlineMovieService
 
 
             }));
-
+            services.AddSession(c => c.IdleTimeout = TimeSpan.FromMinutes(2));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContext<Movie_Ticket_BookingContext>(opts=>opts.UseSqlServer(Configuration.GetConnectionString("MovieConnectionString")));
         }
@@ -47,6 +47,7 @@ namespace OnlineMovieService
                 app.UseDeveloperExceptionPage();
                 
             }
+            app.UseSession();
             app.UseMiddleware(typeof(ExceptionHandlingMiddleware));
             app.UseCors("MyPolicy");
             app.UseMvc();
