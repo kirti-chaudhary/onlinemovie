@@ -50,7 +50,7 @@
         <div class="col-lg-5">*@
     <div style="position:absolute;top:250px;left:250px;">
         <div class="form-group" style="column-width:400px">
-            <select asp-items="@cities" id="selCity" name="Category" class="form-control">
+            <select asp-items="@cities" id="selCity" name="Category" class="form-control" required="required">
                 <option value="" selected disabled>Select City</option>
             </select>
         </div>
@@ -58,12 +58,12 @@
         <form asp-action="GetMovies" asp-controller="Search">
 
             <div class="form-group">
-                <select id="selMultiplex" name="MultiplexId" class="form-control">
+                <select id="selMultiplex" name="MultiplexId" class="form-control" required="required">
                     <option value="" selected disabled>Select Multiplex</option>
                 </select>
             </div>
             <div class="form-group" style="column-width:400px">
-                <input class="form-control" type="date" name="MovieDate" value="Select Date" />
+                <input class="form-control" type="date" name="MovieDate" value="Select Date"  required="required"/>
             </div>
             <div class="form-group" style="column-width:650px">
                 <a href="http://localhost:54200/Search/GetMovies">

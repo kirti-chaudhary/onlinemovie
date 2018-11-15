@@ -53,7 +53,7 @@ namespace Onlinemovie.Controllers
         public IActionResult SelectedSeats(string[] selectedseats)
         {
             service.StoreSeatsInSession(selectedseats, HttpContext);
-            return RedirectToAction("Payment","Booking");
+            return View("Payment");
         }
 
     }

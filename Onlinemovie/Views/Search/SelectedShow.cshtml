@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "SelectedShow";
 
+
     BookSeat1 seatInfo = (BookSeat1)ViewData["SeatInfo"];
     int seatperrow = seatInfo.TotalSeats / 10;
     string[] seats = seatInfo.Seatno.ToArray();
@@ -128,7 +129,7 @@
                 }
 
             </table>
-            <input type="submit" class="btn btn-primary btn-block" value="Book Seats" />
+            <input type="submit" class="btn btn-primary btn-block" value="Book Seats" id="btnbook"/>
         </form>
     </div>
 </body>
@@ -155,6 +156,14 @@
             }
         });
 
+        var x=$('input[type=checkbox]:checked').length;
+        $('#btnbook').click(function (e) {
+            var y = $('input[type=checkbox]:checked').length;
+            if (x == y) {
+                alert('Please select seats.');
+                e.preventDefault();
+            }
+        });
     </script>
 }
 

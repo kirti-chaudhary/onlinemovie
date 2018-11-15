@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using MovieTicketLibrary;
 using Newtonsoft.Json;
+using OnlineMovieService.Models;
 using OnlineMovieService.Models.DB;
 using System;
 using System.Collections.Generic;
@@ -21,8 +22,9 @@ namespace Onlinemovie.Models
             client = new HttpClient();
             client.BaseAddress = new Uri("http://localhost:54515/");
         }
-        public void MakeBooking(string Paymentmode)
+        public ShowInfo MakeBooking(string Paymentmode)
         {
+            ShowInfo ticketInfo=null;
             int ShowId = Context.Session.GetInt32("ShowId").Value;
             int CustomerId = Context.Session.GetInt32("CustomerId").Value;
             string seats = Context.Session.GetString("seats");
@@ -42,10 +44,11 @@ namespace Onlinemovie.Models
             if (response.IsSuccessStatusCode==true)
             {
 
-               // string ticketJson = response.Content.ReadAsStringAsync().Result;
-               // Bookedseat[] ticketInfo=JsonConvert.DeserializeObject<Bookedseat[]>(ticketJson);
+                string ticketJson = response.Content.ReadAsStringAsync().Result;
+                ticketInfo = JsonConvert.DeserializeObject<ShowInfo>(ticketJson);
             }
-
+            return ticketInfo;
+            
         }
 
 

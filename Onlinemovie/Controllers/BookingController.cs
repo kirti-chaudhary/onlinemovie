@@ -20,13 +20,13 @@ namespace Onlinemovie.Controllers
         public IActionResult Payment(string mode)
         {
             BookingService obj;
-            if (mode != null)
-            {
-                obj = new BookingService();
-                obj.Context = HttpContext;
-                obj.MakeBooking(mode);
-            }
-            return View();
+
+            obj = new BookingService();
+            obj.Context = HttpContext;
+            var result = obj.MakeBooking(mode);
+            ViewData["ticketinfo"] = result;
+            return View("Invoice");
         }
+      
     }
 }

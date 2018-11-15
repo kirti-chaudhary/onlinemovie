@@ -31,5 +31,5 @@ namespace MovieTicketLibrary
         public int Price { get; set; }
 
     }
-
+  
 }

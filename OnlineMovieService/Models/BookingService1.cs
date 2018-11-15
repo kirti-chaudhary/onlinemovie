@@ -17,7 +17,7 @@ namespace OnlineMovieService.Models
 
 
         }
-        public Bookedseat[] BookTickets(BookingInformation bookinginformation)
+        public ShowInfo BookTickets(BookingInformation bookinginformation)
         {
 
             Bookingdetails obj = new Bookingdetails();
@@ -49,7 +49,14 @@ namespace OnlineMovieService.Models
                 context.SaveChanges();
 
             var ticketNosForInvoice = (from b in context.Bookedseat where b.Bookingid == obj.Bookingid select b).ToArray();
-            return ticketNosForInvoice;
+            var info = (from s in context.Shows
+                       join m in context.Multiplex on s.MultiplexId equals m.MultiplexId
+                       join h in context.MultiplexHall on m.MultiplexId equals h.MultiplexId
+                       where s.ShowId == showobj.ShowId
+                       select new ShowInfo() { MultiplexName = m.MultiplexName, HallName = h.HallName }).FirstOrDefault();
+            for (int i = 0; i < ticketNosForInvoice.Length; i++) ticketNosForInvoice[i].Booking = null;
+            info.Seats = ticketNosForInvoice;
+            return info;
             }
         }
     }

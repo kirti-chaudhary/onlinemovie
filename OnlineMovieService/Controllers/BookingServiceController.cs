@@ -20,8 +20,8 @@ namespace OnlineMovieService.Controllers
         {
             BookingService1 obj = new BookingService1();
             var ticketInfo= obj.BookTickets(bookingInformation);
-
-            return Ok();
+      
+            return Ok(ticketInfo);
             
         }
     }
