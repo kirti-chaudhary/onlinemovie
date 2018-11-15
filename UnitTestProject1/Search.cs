@@ -14,11 +14,14 @@ namespace OnlineMovieUnitTests
     {
         SearchServiceController controller;
         Movie_Ticket_BookingContext context;
+      
 
         public SearchTestClass()
         {
             context = new Movie_Ticket_BookingContext();
             controller = new SearchServiceController(context);
+            
+
         }
         class Search
         {
@@ -34,7 +37,7 @@ namespace OnlineMovieUnitTests
             };
             //Act
             var result = controller.GetMultiplex("Noida");
-            Assert.AreEqual(3, result.Count);
+            Assert.AreEqual(2, result.Count);
         }
 
         class Movie
@@ -48,9 +51,9 @@ namespace OnlineMovieUnitTests
             //Act
             MovieDetails m = new MovieDetails();
             m.MultiplexId = 100;
-            m.MovieDate = Convert.ToDateTime("2018-09-30");
+            m.MovieDate = Convert.ToDateTime("2018-11-20");
              var result = controller.GetMovies(m);
-             Assert.AreEqual(2,result.Count);
+             Assert.AreEqual(4,result.Count);
         }
         [TestMethod]
         public void Show()
@@ -60,11 +63,11 @@ namespace OnlineMovieUnitTests
 
             };
             var result = controller.SelectedShow(1001);
-            Assert.AreEqual(3,result.Seatno.Count);
+            Assert.AreEqual(5,result.Seatno.Count);
            
         }
-
         
+
     }
 }
 

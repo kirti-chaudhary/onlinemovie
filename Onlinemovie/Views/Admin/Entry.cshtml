@@ -93,7 +93,7 @@
     </div>
     <form asp-action="Entry" asp-controller="Admin" method="post">
         @*<h2 class="text-center" style="font:400;font-style:inherit;color:aliceblue">Sign Up</h2>*@
-        <div style="position:absolute;top:28%;left:28% ">
+        <div style="position:absolute;top:28%;left:28%;background-color:lightyellow ">
             <div class="form-group" style="column-width:650px">
                 <input type="text" class="form-control" asp-for="Name" placeholder="Enter Name" required="required">
             </div>
@@ -106,7 +106,7 @@
 
 
             <div class="form-group" style="column-width:650px">
-                <input type="text" class="form-control" asp-for="Phoneno" placeholder="Enter Phoneno" required="required">
+                <input type="text" class="form-control" asp-for="Phoneno" placeholder="Enter Phoneno"  pattern="^\d{10}$"  title="invalid phone number" required="required">
             </div>
             <div class="form-group" style="column-width:650px">
                 <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
