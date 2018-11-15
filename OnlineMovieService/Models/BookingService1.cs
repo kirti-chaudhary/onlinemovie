@@ -14,7 +14,7 @@ namespace OnlineMovieService.Models
         public BookingService1()
         {
             context = new Movie_Ticket_BookingContext();
-
+            int x = 9;
 
         }
         public ShowInfo BookTickets(BookingInformation bookinginformation)
