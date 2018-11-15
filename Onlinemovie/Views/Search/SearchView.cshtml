@@ -63,11 +63,11 @@
                 </select>
             </div>
             <div class="form-group" style="column-width:400px">
-                <input class="form-control" type="date" name="MovieDate" value="Select Date"  required="required"/>
+                <input class="form-control" type="date" name="MovieDate" value="Select Date" id="txtdate" required="required"/>
             </div>
             <div class="form-group" style="column-width:650px">
                 <a href="http://localhost:54200/Search/GetMovies">
-                    <input type="submit" value="Select Movie" class="btn btn-primary btn-block"/>
+                    <input type="submit" id="btnmovie" value="Select Movie" class="btn btn-primary btn-block"/>
                     
                 </a>
             </div>
@@ -129,6 +129,19 @@
                         }
                     });
 
+                });
+
+                $('#btnmovie').click(function (e) {
+
+                    var d1 = $('#txtdate').val();
+                    var selecteddate = new Date(d1);
+
+                    var today = new Date();
+                    if (selecteddate < today) {
+
+                        alert('Cannot select movie from past date.');
+                        e.preventDefault();
+                    }
                 });
             });
         </script>
