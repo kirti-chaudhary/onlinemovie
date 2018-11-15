@@ -47,23 +47,20 @@
             }
 
         /* Style the container for inputs */
-        .container {
-            background-color: #f1f1f1;
-            padding: 20px;
-        }
+       
 
         #message {
             display: none;
-            background: #f1f1f1;
+            background-color:aliceblue ;
             color: #000;
-            position: relative;
+            position: absolute;top:54%;left:20%;
             padding: 10px;
             margin-top: 10px;
         }
 
             #message p {
                 padding: 8px 20px;
-                font-size: 7px;
+                font-size: 11px;
             }
 
         .valid {
@@ -96,7 +93,7 @@
     </div>
     <form asp-action="Entry" asp-controller="Admin" method="post">
         @*<h2 class="text-center" style="font:400;font-style:inherit;color:aliceblue">Sign Up</h2>*@
-        <div style="position:absolute;top:250px;left:250px ">
+        <div style="position:absolute;top:28%;left:28% ">
             <div class="form-group" style="column-width:650px">
                 <input type="text" class="form-control" asp-for="Name" placeholder="Enter Name" required="required">
             </div>
