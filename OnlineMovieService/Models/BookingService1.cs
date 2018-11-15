@@ -56,6 +56,8 @@ namespace OnlineMovieService.Models
                        select new ShowInfo() { MultiplexName = m.MultiplexName, HallName = h.HallName }).FirstOrDefault();
             for (int i = 0; i < ticketNosForInvoice.Length; i++) ticketNosForInvoice[i].Booking = null;
             info.Seats = ticketNosForInvoice;
+            var moviename = (from s in context.Shows join m in context.Movie on s.MovieId equals m.MovieId where s.ShowId == showobj.ShowId select m.MovieName).FirstOrDefault();
+            info.MovieName = moviename;
             return info;
             }
         }

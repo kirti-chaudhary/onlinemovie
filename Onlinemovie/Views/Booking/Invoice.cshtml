@@ -13,18 +13,19 @@
     <h3><label>@ticketinfo.HallName</label></h3>
     <br />
     <h3><label>@ticketinfo.Seats[0].Bookingid</label></h3>
-        <table class="table table-bordered" style="box-shadow:inherit" id="customers">
+    <h3>Movie Name: @ticketinfo.MovieName</h3>
+    <table class="table table-bordered" style="box-shadow:inherit" id="customers">
+        <tr>
+            <th>SeatNo</th>
+            <th>Ticketno</th>
+        </tr>
+        @foreach (var b in ticketinfo.Seats)
+        {
             <tr>
-                <th>SeatNo</th>
-                <th>Ticketno</th>
-            </tr>
-            @foreach (var b in ticketinfo.Seats)
-            {
-                <tr>
-                    <td style="padding:10px">@b.Seatno</td>
-                    <td style="padding:10px">@b.Ticketno</td>
+                <td style="padding:10px">@b.Seatno</td>
+                <td style="padding:10px">@b.Ticketno</td>
 
-                </tr>
-            }
-        </table>
+            </tr>
+        }
+    </table>
 </div>

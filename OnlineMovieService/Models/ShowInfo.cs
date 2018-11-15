@@ -11,6 +11,7 @@ namespace OnlineMovieService.Models
         public Bookedseat[] Seats {get;set;}
             public string MultiplexName { get; set; }
             public string HallName { get; set; }
-        
+        public string MovieName { get; set; }
+
     }
 }
