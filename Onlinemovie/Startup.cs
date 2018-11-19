@@ -58,7 +58,7 @@ namespace Onlinemovie
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Admin}/{action=Login}/{id?}");
+                    template: "{controller=Admin}/{action=Login}/{id?}"); 
             });
             logger.AddFile("d:\\logfile.txt");
         }

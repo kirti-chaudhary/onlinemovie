@@ -24,114 +24,131 @@
 <html lang="en">
 <head>
     @*<div>
-        <a href="http://localhost:54200/Search/GetMovies">
-            <input class="btn btn-primary" type="button" value="Go Back" style="position:absolute;top:50px;left:30px" />
+            <a href="http://localhost:54200/Search/GetMovies">
+                <input class="btn btn-primary" type="button" value="Go Back" style="position:absolute;top:50px;left:30px" />
 
-        </a>
-    </div>*@
+            </a>
+        </div>*@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap Simple Login Form</title>
-    <link href="~/css/site.css" rel="stylesheet" />
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <h2 class="heading-main">Online Movie Ticket Booking </h2>
 
-
-    @*<style>
-            #customers {
-                font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-                border-collapse: collapse;
-                width: 100%;
-            }
-
-                #customers td, #customers th {
-                    border: 1px solid #ddd;
-                    padding: 10px;
-                }
-
-                #customers tr:nth-child(even) {
-                    background-color: #f2f2f2;
-                }
-
-                #customers tr:hover {
-                    background-color: #ddd;
-                }
-
-                #customers th {
-                    padding-top: 12px;
-                    padding-bottom: 12px;
-                    text-align: left;
-                    background-color: steelblue;
-                    color: white;
-                }
-        </style>*@
+    <style>
+        .no-border {
+            border: none !important;
+        }
+        .heading-main {
+            color: black;
+            height: 4%;
+            width: 100%;
+            background-color: palevioletred;
+            border-radius: 10%
+        }
+        .btn {
+            background-color: deepskyblue; /* Green */
+            border: none;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 20%;
+        }
+    </style>
 
 </head>
 <body>
+    <marquee behavior="scroll" direction="left">
+
+        <img src="~/images/stree1.jpg" width="125" height="100" alt="stree1">&nbsp;&nbsp;
+        <img src="~/images/shah.jpg" width="125" height="100" alt="shahrukh khan" />&nbsp;&nbsp;
+
+        <img src="~/images/deep.jpg" width="125" height="100" alt="deepika padukone" />&nbsp;&nbsp;
+
+        <img src="~/images/baaz.jpg" width="125" height="100" alt="baaz" />&nbsp;&nbsp;
+        <img src="~/images/badhai ho.jpg" width="125" height="100" alt="badhai ho" />&nbsp;&nbsp;
+        <img src="~/images/dhamaal.jpg" width="125" height="100" alt="dhamaal" />&nbsp;&nbsp;
+        <img src="~/images/dhoom.jpg" width="125" height="100" alt="dhoom" />&nbsp;&nbsp;
+        <img src="~/images/golmaal3.jpg" width="125" height="100" alt="golmaal" />&nbsp;&nbsp;
+        <img src="~/images/salman.jpg" width="125" height="100" alt="salman" />&nbsp;&nbsp;
+        <img src="~/images/AYU.JPG" width="125" height="100" alt="ayu" />
+    </marquee>
     @{
         int n = 65;
     }
-    <div style="background-color:aliceblue;position:absolute;top:26%;left:32%">
+    <div style="background-color:white;position:absolute;top:30%;left:32%">
         <form asp-action="SelectedSeats" asp-controller="Search">
-            <table class="table table-bordered">
+            <table class="table table-bordered" style="background-color:wheat">
 
 
                 @for (int i = 1; i <= 10; i++)
                 {
-                <tr>
+                    <tr>
 
-                    @for (int j = 1; j <= seatperrow; j++)
-                    {
-                        if (j == 4)
+                        @for (int j = 1; j <= seatperrow; j++)
                         {
-                            <td style="text-align:right" class="no-border">
-                                &nbsp;
-                            </td>
-                            <td style="text-align:right" class="no-border">
-                                &nbsp;
-                            </td>
-                            <td style="text-align:right" class="no-border">
-                                &nbsp;
-                            </td>
-                            <td style="text-align:right" class="no-border">
-                                &nbsp;
-                            </td>
-                            <td style="text-align:right" class="no-border">
-                                &nbsp;
-                            </td>
+                            if (j == 4)
+                            {
+                                <td style="text-align:right" class="no-border">
+                                    &nbsp;
+                                </td>
+                                <td style="text-align:right" class="no-border">
+                                    &nbsp;
+                                </td>
+                                <td style="text-align:right" class="no-border">
+                                    &nbsp;
+                                </td>
+                                <td style="text-align:right" class="no-border">
+                                    &nbsp;
+                                </td>
+                                <td style="text-align:right" class="no-border">
+                                    &nbsp;
+                                </td>
 
 
 
-                            <td style="text-align:right">
-                                <label>@string.Format("{0}{1}", (char)n, j)</label>
-                                
-                            </td>
-                            <td>
-                                <input type="checkbox" name="selectedseats" style="transform:scale(2,2)" value="@string.Format("{0}{1}", (char)n, j)" />
-                            </td>
+                                <td style="text-align:right">
+                                    <label>@string.Format("{0}{1}", (char)n, j)</label>
+
+                                </td>
+                                <td>
+                                    <input type="checkbox" name="selectedseats" style="transform:scale(2,2)" value="@string.Format("{0}{1}", (char)n, j)" />
+                                </td>
+                            }
+                            else
+                            {
+                                <td style="text-align:right">
+                                    <label>@string.Format("{0}{1}", (char)n, j)</label>
+                                </td>
+                                <td>
+                                    <input type="checkbox" name="selectedseats" style="transform:scale(2,2)" value="@string.Format("{0}{1}", (char)n, j)" />
+                                </td>
+                            }
+
                         }
-                        else
-                        {
-                            <td style="text-align:right">
-                                <label>@string.Format("{0}{1}", (char)n, j)</label>
-                            </td>
-                            <td>
-                                <input type="checkbox" name="selectedseats" style="transform:scale(2,2)" value="@string.Format("{0}{1}", (char)n, j)" />
-                            </td>
+                        @{n++;
                         }
-
-                    }
-                    @{n++;
-                    }
-                </tr>
+                    </tr>
                 }
 
             </table>
-            <input type="submit" class="btn btn-primary btn-block" value="Book Seats" id="btnbook"/>
+            <center>
+                <h4>All Eyes This Way</h4>
+                <input type="submit" class="btn" value="Book Seats" id="btnbook" />
+            </center>
         </form>
+
     </div>
+   
 </body>
 </html>
 <br />

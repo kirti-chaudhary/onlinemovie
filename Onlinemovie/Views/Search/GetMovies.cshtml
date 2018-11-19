@@ -6,21 +6,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    @*<div>
-            <a href="http://localhost:54200/Search/SearchView">
-                <input class="btn btn-primary" type="button" value="Go Back" style="position:absolute;top:50px;left:30px" />
 
-            </a>
-        </div>*@
+    <h2 class="heading-main">Online Movie Ticket Booking </h2>
+    <link href="~/css/site.css" rel="stylesheet" />
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap Simple Login Form</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+   
 
     <style>
         #customers {
@@ -45,28 +35,47 @@
             #customers th {
                 padding-top: 12px;
                 padding-bottom: 12px;
-                text-align: left;
-                background-color: steelblue;
-                color: white;
+                text-align: center;
+                background-color: lightblue;
+                color: black;
             }
     </style>
 
 </head>
-<body style="background-image:url(http://www.yesco.com/wp-content/uploads/2017/08/State-Theater.jpg)">
-   
-        <div style="background-color:aliceblue;position:absolute;top:28%;left:18%">
+<body class="bg-img1">
+
+    <marquee behavior="scroll" direction="left">
+
+        <img src="~/images/stree1.jpg" width="125" height="100" alt="stree1">&nbsp;&nbsp;
+        <img src="~/images/shah.jpg" width="125" height="100" alt="shahrukh khan" />&nbsp;&nbsp;
+
+        <img src="~/images/deep.jpg" width="125" height="100" alt="deepika padukone" />&nbsp;&nbsp;
+
+        <img src="~/images/baaz.jpg" width="125" height="100" alt="baaz" />&nbsp;&nbsp;
+        <img src="~/images/badhai ho.jpg" width="125" height="100" alt="badhai ho" />&nbsp;&nbsp;
+        <img src="~/images/dhamaal.jpg" width="125" height="100" alt="dhamaal" />&nbsp;&nbsp;
+        <img src="~/images/dhoom.jpg" width="125" height="100" alt="dhoom" />&nbsp;&nbsp;
+        <img src="~/images/golmaal3.jpg" width="125" height="100" alt="golmaal" />&nbsp;&nbsp;
+        <img src="~/images/salman.jpg" width="125" height="100" alt="salman" />&nbsp;&nbsp;
+        <img src="~/images/AYU.JPG" width="125" height="100" alt="ayu" />
+    </marquee>
+    <div style="position:absolute;top:40%;right:1%;">
+        <img src="~/images/oo.jpg" alt="salman" height="400px" width="400px" />
+    </div>
+
+        <div style="position:absolute;top:35%;left:4%">
             <div>
                 <form asp-action="Getmovies" asp-controller="Search" method="post">
 
-                    <table class="table table-bordered" style="box-shadow:inherit" id="customers" >
+                    <table border="0" style="box-shadow:inherit" id="customers">
                         <tr>
 
-                            <th>Movie Image</th>
-                            <th>Movie Name</th>
-                            <th>Multiplex Name</th>
-                            <th>Price</th>
-                            <th>Movie Time</th>
-                            <th>Select</th>
+                            <th><h3>Movie Image</h3></th>
+                            <th><h3>Movie Name</h3></th>
+                            <th><h3>Multiplex Name</h3></th>
+                            <th><h3>Price</h3></th>
+                            <th><h3>Movie Time</h3></th>
+                            <th><h3>Select</h3></th>
 
 
                         </tr>
@@ -75,22 +84,25 @@
 
                             <tr>
                                 <td>
-                                    <img src='@string.Format("/images/{0}",m.MovieImage)' height="120" width="230" />
+                                    <img src='@string.Format("/images/{0}",m.MovieImage)' height="120" width="150" />
                                 </td>
-                                <td style="padding:40px">@m.MovieName</td>
-                                <td style="padding:40px">@m.MultiplexName</td>
-                                <td style="padding:40px">@Math.Round(m.Price, 0)</td>
-                                <td style="padding:40px">@Convert.ToDateTime(@m.Showtime.ToString()).ToLongTimeString()</td>
-                                <td style="padding:40px">
-                                    <a asp-action="SelectedShow" asp-controller="Search" class="btn btn-primary" asp-route-showid="@m.ShowId">Select Show</a>
+                                <td style="padding:30px"><h3>@m.MovieName</h3></td>
+                                <td style="padding:30px"><h3>@m.MultiplexName</h3></td>
+                                <td style="padding:30px"><h3>@Math.Round(m.Price, 0)</h3></td>
+                                <td style="padding:30px"><h3>@Convert.ToDateTime(@m.Showtime.ToString()).ToLongTimeString()</h3></td>
+
+                                <td style="padding:30px">
+                                    <a asp-action="SelectedShow" asp-controller="Search" class="btn" asp-route-showid="@m.ShowId">Select Show</a>
                                 </td>
                             </tr>
+
                         }
                     </table>
-                    
+
                 </form>
             </div>
         </div>
+  
 
 </body>
 </html>

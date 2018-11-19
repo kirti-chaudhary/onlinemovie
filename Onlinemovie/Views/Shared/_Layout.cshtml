@@ -1,13 +1,14 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <div style="text-align:center;color:dodgerblue ">
+   
+   @*<div style="position:absolute;top:21%;right:3%">
         <h2>Online Movie Ticket Booking</h2>
-    </div>
+    </div>*@
     <div>
-        <a href="http://localhost:54200/">
-            <input class="btn btn-primary" type="button" value="Logout" style="position:absolute;top:50px;right:30px" />
-
+        <a asp-action="Clear" asp-controller="Booking" class="btn" style="position:absolute;top:0%;right:3%">
+           
+            Logout
         </a>
     </div>
     @*<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -92,109 +93,18 @@
    
 
    
-<body id="LoginForm" style=" background-color:white;">
+<body id="LoginForm">
     
-
-    @*<nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">BookStoreApplication</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                        <li> <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="@("window.location.href='" + @Url.Action("Index", "Admin") + "'")">LogOut</button></li>
-                        <li> <button class="btn btn-outline-success my-2 my-sm-0" type="submit">LogIn</button></li>
-                        <li> <button class="btn btn-outline-success my-2 my-sm-0" type="submit">SignUp</button></li>
-                    </ul>
-                    <div class="slideshow-container">
-
-                        <div class="mySlides fade">
-                            <div class="numbertext">1 / 3</div>
-                            <img src="https://images.unsplash.com/photo-1512204231446-d520ee0a0873?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fb09d157a31cc09bddb0818a2d2bb98f&auto=format&fit=crop&w=1352&q=80" style="width:100%" ,style="height:100px">
-
-                        </div>
-
-                        <div class="mySlides fade">
-                            <div class="numbertext">2 / 3</div>
-                            <img src="https://images.unsplash.com/photo-1533743749047-da9fa6cf0bde?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=92c09e00da4a2163ac0b0ceb1fef7e56&auto=format&fit=crop&w=1350&q=80" style="width:100%" ,style="height:100px">
-
-                        </div>
-
-                        <div class="mySlides fade">
-                            <div class="numbertext">3 / 3</div>
-                            <img src="https://images.unsplash.com/photo-1507924267304-e51febff7b1c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5ad693048800c63b7ea1914cfad74955&auto=format&fit=crop&w=1308&q=80" style="width:100%" ,style="height:100px">
-
-                        </div>
-
-                    </div>
-                    <br>
-
-                    <div style="text-align:center">
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                    </div>
-                </div>
-            </div>
-        </nav>*@
-    <header>
-        @*<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-                <a class="navbar-brand" style="color:white">BOOK STORE</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-                        aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                    <ul class="navbar-nav mr-auto"></ul>
-                    <div class="search-container">
-                        <form action="/action_page.php">
-                            <input type="text" placeholder="Search.." name="search">
-                            <button type="submit"><i class="fa fa-search"></i></button>
-                        </form>
-                    </div>
-
-                </div>
-            </nav>
-            <br />*@
-    </header>
-
-    @*<script>
-            var slideIndex = 0;
-            showSlides();
-
-            function showSlides() {
-                var i;
-                var slides = document.getElementsByClassName("mySlides");
-                var dots = document.getElementsByClassName("dot");
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                }
-                slideIndex++;
-                if (slideIndex > slides.length) { slideIndex = 1 }
-                for (i = 0; i < dots.length; i++) {
-                    dots[i].className = dots[i].className.replace(" active", "");
-                }
-                slides[slideIndex - 1].style.display = "block";
-                dots[slideIndex - 1].className += " active";
-                setTimeout(showSlides, 2000); // Change image every 2 seconds
-            }
-        </script>*@
+    
+   
+    
 
     @*<img src="~/images/cinema-blue-background-3d-realistic-450w-775574110.jpg" height="350" width="1200" />*@
 
     <partial name="_CookieConsentPartial" />
-    <div class="container body-content">
+    <div>
         @RenderBody()
-        <hr />
+       
         <footer>
                 <p></p>
             </footer>

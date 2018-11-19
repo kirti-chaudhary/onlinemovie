@@ -1,15 +1,15 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    /*padding-top: 50px;
+    padding-bottom: 20px;*/
 }
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    /*padding-left: 15px;
+    padding-right: 15px;*/
 }
 
 /* Carousel */
@@ -27,9 +27,7 @@ body {
 #qrCode {
     margin: 15px;
 }
-.no-border{
-    border:none !important;
-}
+
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
     /* Hide captions */
@@ -37,3 +35,172 @@ body {
         display: none;
     }
 }
+input {
+    /*width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;*/
+    width: 90%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: groove;
+    background: #f1f1f1;
+    border-radius: 10%
+}
+
+    /* Style the submit button */
+   
+
+/* Style the container for inputs */
+
+
+#message {
+    display: none;
+    background-color: lightblue;
+    color: #000;
+    position: absolute;
+    top: 59%;
+    left: 20%;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+    #message p {
+        padding: 8px 20px;
+        font-size: 15px;
+    }
+
+.valid {
+    color: green;
+}
+
+    .valid:before {
+        position: relative;
+        left: -35px;
+        content: "✔";
+    }
+
+
+.invalid {
+    color: red;
+}
+
+    .invalid:before {
+        position: relative;
+        left: -35px;
+        content: "✖";
+    }
+
+body {
+    /*background-image: url('../images/backcover.png');*/
+}
+.heading-main {
+    color: black;
+    height: 4%;
+    width: 100%;
+    background-color: palevioletred;
+    border-radius: 10%
+}
+.bg-img {
+    /* The image used */
+    background-image: url('../images/backcover.png');
+    /*background-color: lightblue;*/
+    height: 450px;
+    width: 60%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    left: 20%;
+    top: 5%;
+    border-radius: 10%
+}
+body, html {
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+    position: absolute;
+    left: 25%;
+    top: 1%;
+    margin: 20px;
+    max-width: 400px;
+    padding: 20px;
+    background-color:lightgray;
+    border-radius: 5%
+}
+input:focus {
+    background-color:lemonchiffon;
+    outline: none;
+}
+/*.btn {
+    background-color:blue;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+    .btn:hover {
+        opacity: 1;
+    }*/
+.btn {
+    background-color: deepskyblue; /* Green */
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20%;
+}
+.container1 {
+    position: absolute;
+    left: 25%;
+    top: 20%;
+    margin: 20px;
+    max-width: 400px;
+    padding: 20px;
+    background-color: lightgray;
+    border-radius: 5%
+}
+.container2 {
+    position: absolute;
+    left: 25%;
+    top: 20%;
+    margin: 20px;
+    /*max-width: 400px;*/
+    padding: 20px;
+   
+    border-radius: 8%
+}
+select {
+    position: center;
+    width: 400px;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: groove;
+    background: #f1f1f1;
+    border-radius: 10%
+}
+.bg-img1 {
+    /* The image used */
+    /*background-image: url('../images/backcover.png');*/
+    background-color:white;
+    height: 550px;
+    width: 100%;
+    /* Center and scale the image nicely */
+    background-repeat: no-repeat;
+    position: relative;
+}
+    
+   
+

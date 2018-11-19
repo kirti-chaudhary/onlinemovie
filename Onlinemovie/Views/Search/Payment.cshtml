@@ -5,12 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    @*<div>
-        <a href="http://localhost:54200/Search/SelectedShow">
-            <input class="btn btn-primary" type="button" value="Go Back" style="position:absolute;top:50px;left:30px" />
 
-        </a>
-    </div>*@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,110 +13,126 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-    @*<style type="text/css">
-            .login-form {
-                width: 200px;
-                margin: 50px auto;
-                position: absolute;
-                top: 150px;
-                left: 430px;
-            }
-
-                .login-form form {
-                    margin-bottom: 15px;
-                    background: #f7f7f7;
-                    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-                    padding: 30px;
-                }
-
-                .login-form h2 {
-                    margin: 0 0 15px;
-                }
-
-            .form-control, .btn {
-                min-height: 38px;
-                border-radius: 2px;
-            }
-
-            .btn {
-                font-size: 15px;
-                font-weight: bold;
-            }
-        </style>*@
+    <h2 class="heading-main">Online Movie Ticket Booking </h2>
+  
+    
     <style>
         input[type=radio] {
             transform: scale(2,2);
         }
+        .heading-main {
+            color: black;
+            height: 4%;
+            width: 100%;
+            background-color: palevioletred;
+            border-radius: 10%
+        }
+        .btn {
+            background-color: deepskyblue; /* Green */
+            border: none;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 20%;
+        }
+        .container2 {
+            position: absolute;
+            left: 20%;
+            top: 22%;
+            margin: 20px;
+            /*max-width: 400px;*/
+            padding: 20px;
+            border-radius: 8% ;
+            position: center;
+            width: 400px;
+            padding: 15px;
+          
+            border: groove;
+            background: #f1f1f1;
+           
+        }
     </style>
 </head>
 <body>
-    <div style="position:absolute;top:20%;left:28%;">
+    <marquee behavior="scroll" direction="left">
+
+        <img src="~/images/stree1.jpg" width="125" height="100" alt="stree1">&nbsp;&nbsp;
+        <img src="~/images/shah.jpg" width="125" height="100" alt="shahrukh khan" />&nbsp;&nbsp;
+
+        <img src="~/images/deep.jpg" width="125" height="100" alt="deepika padukone" />&nbsp;&nbsp;
+
+        <img src="~/images/baaz.jpg" width="125" height="100" alt="baaz" />&nbsp;&nbsp;
+        <img src="~/images/badhai ho.jpg" width="125" height="100" alt="badhai ho" />&nbsp;&nbsp;
+        <img src="~/images/dhamaal.jpg" width="125" height="100" alt="dhamaal" />&nbsp;&nbsp;
+        <img src="~/images/dhoom.jpg" width="125" height="100" alt="dhoom" />&nbsp;&nbsp;
+        <img src="~/images/golmaal3.jpg" width="125" height="100" alt="golmaal" />&nbsp;&nbsp;
+        <img src="~/images/salman.jpg" width="125" height="100" alt="salman" />&nbsp;&nbsp;
+        <img src="~/images/AYU.JPG" width="125" height="100" alt="ayu" />
+    </marquee>
+    <div style="position:absolute;top:35%;right:3%;">
+        <img src="~/images/oo.jpg" alt="salman" height="400px" width="400px" />
+    </div>
+    <div class="container2">
 
         <form asp-action="Payment" asp-controller="Booking">
 
 
-            <div class="form-group">
-                <img src="~/images/cards.jpg" alt="cards" />
-            </div>
-            <div class="form-group" style="font-size:18px">
+            @*<div class="form-group">
+                    <img src="~/images/cards.jpg" alt="cards" />
+                </div>*@
+            <div style="font-size:18px">
                 <table>
-
                     <tr>
                         <td>
-                            <label style="color:dodgerblue">Payment Method</label>
+                            <label style="color:lightseagreen">Payment Method</label>
                         </td>
                     </tr>
 
 
                     <tr>
                         <td>
-                            <span style="color:dodgerblue">Debit Card</span>
-                            &nbsp;
-                            &nbsp;
+                            <span style="color:black"><b>Debit Card</b></span>
+                        </td>
+                        <td>
+                            <input type="radio" name="mode" value="DC" />
 
-                            @*</td>*@
+                        </td>
+                    </tr>
+                    <tr>
 
-                            @*<td>*@<input type="radio" style="color:dodgerblue" name="mode" value="DC" />
+                        <td>
 
-                            &nbsp;
-                            &nbsp;
-                            &nbsp;
-                            &nbsp;
-                            &nbsp;
-                            &nbsp;
-                            &nbsp;
-                            &nbsp;
-                            &nbsp;
-                            &nbsp;
-
-
-                            <span style="color:dodgerblue">Credit Card</span>
-                            &nbsp;
-                            &nbsp;
-
+                            <span style="color:black"><b>Credit Card</b></span>
+                        </td>
+                        <td>
                             <input type="radio" name="mode" value="CC" />
                         </td>
                     </tr>
                 </table>
             </div>
-            <div class="form-group" style="column-width:650px;position:page">
-                <div class="form-group" >
+
+            <div>
+                <div>
                     @*<label class="control-label">Customer Name</label>*@
                     <input type="text" class="form-control" placeholder="Customer Name" required="required" />
                     @*<input type="text" class="form-control" />*@
-                </div>
-                <div class="form-group">
+                </div><br />
+                <div>
                     @*<label for="cname">Name on Card</label>*@
                     <input type="text" class="form-control" for="cname" placeholder="Name on Card" required="required" />
                     @*<input type="text" class="form-control" />*@
-                </div>
-                <div class="form-group">
+                </div><br />
+                <div>
                     @*<label for="ccnum">Credit card number</label>
-                <input type="text" class="form-control" />*@
-                    <input type="text" class="form-control" for="ccnum" placeholder="0000000000000000"  pattern="[0-9]{16}" required="required" />
-                </div>
-                <div class="form-group">
+                        <input type="text" class="form-control" />*@
+                    <input type="text" class="form-control" for="ccnum" placeholder="0000000000000000" pattern="[0-9]{16}" required="required" />
+                </div><br />
+                <div>
                     @*<label for="expmonth">Exp Month</label>*@
                     @*<input  class="form-control" for="expmonth" placeholder="Exp Month" required="required" />*@
                     <div id="month">
@@ -141,8 +152,8 @@
                             <option value='12'>December</option>
                         </select>
                     </div>
-                </div>
-                <div class="form-group">
+                </div><br />
+                <div>
                     @*<label for="expyear">Exp Year</label>*@
                     <div id="year">
                         <select id='year' class="form-control" for="expyear" required="required">
@@ -156,27 +167,28 @@
                             <option value="2024">2024</option>
                         </select>
                     </div>
-                </div>
-                <div class="form-group">
+                </div><br />
+                <div>
                     @*<label for="cvv">CVV</label>*@
-                    <input type="password" pattern="[0-9]{3}"     class="form-control" for="cvv" placeholder="000" required="required" />
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-primary btn-block" type="submit" id="btnpay">Pay and Book Tickets</button>
+                    <input type="password" pattern="[0-9]{3}" class="form-control" for="cvv" placeholder="000" required="required" />
+                </div><br />
+                <div>
+                    <button class="btn" type="submit" id="btnpay">Pay and Book Tickets</button>
 
                 </div>
-                </div>
+            </div>
         </form>
-        </div>
-        <script>
-            $('#btnpay').click(function (e) {
-                var y = $('input[type=radio]:checked').length;
-                if ( y==0) {
-                    alert('Please select Payment mode.');
-                    e.preventDefault();
-                }
-            });
-        </script>
+    </div>
+
+    <script>
+        $('#btnpay').click(function (e) {
+            var y = $('input[type=radio]:checked').length;
+            if (y == 0) {
+                alert('Please select Payment mode.');
+                e.preventDefault();
+            }
+        });
+    </script>
 </body>
 </html>
 
